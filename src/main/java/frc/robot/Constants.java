@@ -1,10 +1,5 @@
 package frc.robot;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import edu.wpi.first.wpilibj2.command.Command;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
  * numerical or boolean
@@ -20,8 +15,26 @@ import edu.wpi.first.wpilibj2.command.Command;
 public final class Constants {
 
     public static final double GLOBAL_TIMESTEP = 0.02;
+    public static final double controllerError = 0.05;
+
+    public static final double rotkP = 0.1;
+    public static final double rotkI = 0.0;
+    public static final double rotkD = 0.0;
 
     public static final class MotorConstants {
-        
+        public static final int CONTROLLER_ID = 1;
+        public static final double neoMomentOfInertia = 2.955E-06; 
+    }
+
+
+    public static final Mode currentMode = Mode.REAL;
+
+    public static enum Mode {
+        /** Running on a real robot. */
+        REAL,
+        /** Running a physics simulator. */
+        SIM,
+        /** Replaying from a log file. */
+        REPLAY
     }
 }
