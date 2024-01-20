@@ -18,6 +18,10 @@ public class DiskSubsystem extends SubsystemBase {
         diskIO.updateInputs(inputs);
     }
 
+    public void setSpeed(double speed) {
+      diskIO.setSpeed(speed);
+    }
+
     public DiskIOInputs getInputs() {
         return inputs;
       }
