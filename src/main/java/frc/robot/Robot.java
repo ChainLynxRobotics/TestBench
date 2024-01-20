@@ -79,6 +79,8 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     SmartDashboard.putNumber("Encoder value", m_encoder.getPosition()); 
     SmartDashboard.putNumber("Motor Speed", m_encoder.getVelocity());
+    SmartDashboard.putNumber("Motor Temp", m_motor.getMotorTemperature());
+    SmartDashboard.putNumber("Current Drawn", m_motor.getOutputCurrent());
   }
 
   @Override
