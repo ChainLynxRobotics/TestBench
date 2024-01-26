@@ -1,34 +1,32 @@
 package frc.robot.Subsystems.DiskSubsystem;
 
+import org.littletonrobotics.junction.Logger;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Subsystems.DiskSubsystem.DiskIO.DiskIOInputs;
 
 public class DiskSubsystem extends SubsystemBase {
     
-    private DiskIO diskIO;
-    private DiskIOInputs inputs;
+  private DiskIO diskIO;
+  private DiskIOInputsAutoLogged loggedInputs = new DiskIOInputsAutoLogged();
 
-    public DiskSubsystem(DiskIO diskIO) {
-        this.diskIO = diskIO;
-        inputs = new DiskIOInputs();
-    }
+  public DiskSubsystem(DiskIO diskIO) {
+    this.diskIO = diskIO;
+  }
 
-    @Override
-    public void periodic() {
-        diskIO.updateInputs(inputs);
-    }
+  @Override
+  public void periodic() {
+    diskIO.updateInputs(loggedInputs);
+    Logger.processInputs("Disk/disk", loggedInputs);
+  }
 
-    public void setSpeed(double speed) {
-      diskIO.setSpeed(speed);
-    }
+  public void setSpeed(double speed) {
+    diskIO.setSpeed(speed);
+  }
 
-    public DiskIOInputs getInputs() {
-        return inputs;
-      }
-    
-      public void stop() {
-        diskIO.stop();
-      }
-    
+  
+  public void stop() {
+    diskIO.stop();
+  }
+  
 
 }

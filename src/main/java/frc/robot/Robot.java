@@ -30,7 +30,7 @@ public class Robot extends LoggedRobot {
     switch (Constants.currentMode) {
       case REAL:
         // Running on a real robot, log to a USB stick ("/U/logs")
-        Logger.addDataReceiver(new WPILOGWriter()); //specify path on stick as parameter
+        Logger.addDataReceiver(new WPILOGWriter("/media/sda1/")); //specify path on stick as parameter
         Logger.addDataReceiver(new NT4Publisher());
         break;
 
@@ -45,6 +45,7 @@ public class Robot extends LoggedRobot {
         String logPath = LogFileUtil.findReplayLog();
         Logger.setReplaySource(new WPILOGReader(logPath));
         Logger.addDataReceiver(new WPILOGWriter(LogFileUtil.addPathSuffix(logPath, "_sim")));
+        
         break;
     }
 

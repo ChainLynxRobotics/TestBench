@@ -9,6 +9,8 @@ import frc.robot.Constants.MotorConstants;
 
 import java.util.Optional;
 
+import org.littletonrobotics.junction.Logger;
+
 public class DiskIOSparkMax implements DiskIO {
     private CANSparkMax rotation;
     private SparkPIDController controller;
