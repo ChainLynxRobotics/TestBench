@@ -9,10 +9,8 @@ import frc.robot.Constants.MotorConstants;
 
 import java.util.Optional;
 
-import org.littletonrobotics.junction.Logger;
-
 public class DiskIOSparkMax implements DiskIO {
-    private CANSparkMax rotation;
+    public CANSparkMax rotation;
     private SparkPIDController controller;
 
 
@@ -50,6 +48,7 @@ public class DiskIOSparkMax implements DiskIO {
 
     @Override
     public void setSpeed(double speed) {
+        System.out.println("Setting speed to " + speed);
         rotation.set(speed);
     }
 

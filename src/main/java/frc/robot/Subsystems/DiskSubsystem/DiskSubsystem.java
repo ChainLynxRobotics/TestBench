@@ -17,9 +17,13 @@ public class DiskSubsystem extends SubsystemBase {
   public void periodic() {
     diskIO.updateInputs(loggedInputs);
     Logger.processInputs("Disk/disk", loggedInputs);
+
+    double motorRotation = ((DiskIOSparkMax)(diskIO)).rotation.getEncoder().getPosition();
+    Logger.recordOutput("Disk/motorPos", motorRotation);
   }
 
   public void setSpeed(double speed) {
+    System.out.println("setspeed from disk subsystem");
     diskIO.setSpeed(speed);
   }
 
