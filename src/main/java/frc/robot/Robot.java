@@ -22,8 +22,6 @@ public class Robot extends LoggedRobot {
 
   @Override
   public void robotInit() {
-    m_robotContainer = new RobotContainer();
-
     switch (Constants.currentMode) {
       case REAL:
         // Running on a real robot, log to a USB stick ("/U/logs")
@@ -47,11 +45,13 @@ public class Robot extends LoggedRobot {
     }
 
     Logger.start();
-    CommandScheduler.getInstance().run();
+
+    m_robotContainer = new RobotContainer();
   }
 
   @Override
   public void robotPeriodic() {
+    CommandScheduler.getInstance().run();
   }
 
   @Override
