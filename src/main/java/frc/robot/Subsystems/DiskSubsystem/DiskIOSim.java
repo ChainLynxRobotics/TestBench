@@ -50,6 +50,11 @@ public class DiskIOSim implements DiskIO {
     }
 
     @Override
+    public void setVoltage(double voltage) {
+        rotationSim.setInputVoltage(voltage);
+    }
+
+    @Override
     public void stop() {
         rotationSim.setInputVoltage(0);
     }

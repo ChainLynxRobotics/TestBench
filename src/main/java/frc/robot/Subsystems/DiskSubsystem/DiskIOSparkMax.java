@@ -53,6 +53,11 @@ public class DiskIOSparkMax implements DiskIO {
     }
 
     @Override
+    public void setVoltage(double voltage) {
+        rotation.setVoltage(voltage);
+    }
+
+    @Override
     public void stop() {
         rotation.set(0);
     }

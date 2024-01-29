@@ -22,6 +22,9 @@ public interface DiskIO {
     /** set disk speed*/
     public default void setSpeed(double speed) {}
 
+    /** set disk voltage*/
+    public default void setVoltage(double voltage) {}
+
     /** stop any inputs to disk*/
     public default void stop() {}
 
